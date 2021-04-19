@@ -123,7 +123,6 @@ print(df.iloc[7, 5])
 print(df[:10])
 #print(df.head(20))
 
-
 #============================================================================
 #I want to find the most expensive book in the Dataset
 column = df["Price"]
