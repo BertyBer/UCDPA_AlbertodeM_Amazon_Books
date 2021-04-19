@@ -61,3 +61,26 @@
 #I am ignoring the index to avoid duplicated index numbers carried over from all the different datasets.
 
 #===================================================================================================
+
+
+
+#importing packages and continue with Amazon Books project.
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+#Importing database Amazon bestseller books from Kaggle
+df = pd.read_csv(r"C:\Users\Alberto\Desktop\Data Analytics\Amazonbooks\bestsellers with categories.csv")
+#see first five
+#print(df.head())
+#print(df.dtypes)
+#see the number or rows and columns
+#print(df.shape)
+#print(df.columns)
+
+#checking NaN values
+#print(df.isnull().sum())
+#I don't have any
+
