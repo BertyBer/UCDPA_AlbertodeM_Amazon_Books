@@ -116,9 +116,32 @@ print(df.loc[[0, 10], :])
 
 print(df.iloc[0:3, 1:4])
 print(df.loc[[0, 10], :])
-print(df.loc[0, ['Author', 'User_Rating', 'Year']])
+print(df.loc[0, ["Author", "User_Rating", "Year"]])
 print(df.iloc[5, 3])
 print(df.iloc[1, 1])
 print(df.iloc[7, 5])
 print(df[:10])
 #print(df.head(20))
+
+
+#============================================================================
+#I want to find the most expensive book in the Dataset
+column = df["Price"]
+max_value = column.max()
+print(max_value)
+#locating it by index
+column = df["Price"]
+max_index = column.idxmax()
+print(max_index)
+print(df.iloc[[69]])
+# It's Diagnostic and Statistical Manual of Mental Disorders for 105Eur from Year 2013.
+
+#Now that that works, I can find the cheapest book in the Dataset
+column = df["Price"]
+min_value = column.min()
+print(min_value)
+column = df["Price"]
+min_index = column.idxmin()
+print(min_index)
+print(df.iloc[[42]])
+# It's Cabin Fever (Diary of a Wimpy Kid, Book 6) for 0Eur from Year 2011. Although this is not 100% correct as there are more books for free than this one
