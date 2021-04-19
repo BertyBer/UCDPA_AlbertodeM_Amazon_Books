@@ -84,3 +84,41 @@ df = pd.read_csv(r"C:\Users\Alberto\Desktop\Data Analytics\Amazonbooks\bestselle
 #print(df.isnull().sum())
 #I don't have any
 
+##########if I want to fill the NaN values with zero I would use#####
+#df.fillna(0)
+
+###########if I was going to drop the rows and columns with a NaN value, I could do this:#######
+
+########to drop the rows
+#df_row = df.dropna(axis = 0)
+########to drop the columns
+#df = df.dropna(axis=1)
+#print(df.isnull().sum())
+
+#I could have replaced the NaN values instead of dropping them too
+#print(df.isnull().sum())
+#df.fillna(value= "", inplace=True)
+#print(df.isnull().sum())
+
+#set display max rows and columns
+pd.set_option("display.max_rows", None, "display.max_columns", None)
+#print(df)
+#print(df.columns)
+
+#changing User Rating to User_Rating name column name
+df.columns = ["Name", "Author", "User_Rating", "Reviews", "Price", "Year", "Genre"]
+#print(df.columns)
+
+#print(df.head())
+
+#slicing / indexing
+print(df.loc[[0, 10], :])
+
+print(df.iloc[0:3, 1:4])
+print(df.loc[[0, 10], :])
+print(df.loc[0, ['Author', 'User_Rating', 'Year']])
+print(df.iloc[5, 3])
+print(df.iloc[1, 1])
+print(df.iloc[7, 5])
+print(df[:10])
+#print(df.head(20))
