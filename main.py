@@ -156,7 +156,7 @@ plt.show()
 
 #====================================================================
 
-#plotting top ten sellers using seaborn
+#plotting top ten sellers
 
 Top_Ten = df["Name"].value_counts().iloc[:10]
 
