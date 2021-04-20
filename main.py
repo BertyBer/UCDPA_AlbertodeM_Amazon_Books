@@ -158,7 +158,7 @@ plt.show()
 
 #plotting top ten sellers
 
-Top_Ten = df["Name"].value_counts().iloc[:10]
+Top_Ten = df["Name"].value_counts().iloc[:11]
 
 plt.figure(figsize=(15,8))
 sns.barplot(x=Top_Ten.values, y=Top_Ten.index, color="#9acd32", alpha=.9)
@@ -192,7 +192,7 @@ plt.show()
 #I have turned the pie around to make it look like a smiley emoji.
 Genre = df["Genre"].value_counts()
 plt.figure(figsize=(15,7))
-plt.pie(Genre, colors=["#ffff00", "#ff0000"],autopct="%1.1f%%", startangle=169, shadow=False , explode=(0.17,0), labels=Genre.index)
+plt.pie(Genre, colors=["#0000ff", "#ff0000"],autopct="%1.1f%%", startangle=169, shadow=False , explode=(0.17,0), labels=Genre.index)
 plt.title("Book Genre", fontsize=30)
 plt.show()
 
