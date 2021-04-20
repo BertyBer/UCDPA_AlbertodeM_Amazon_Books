@@ -272,9 +272,3 @@ plt.show()
 
 #==================================================================
 
-#I am plotting an histogram showing the frequency of Reviews occurrences.
-sns.histplot(df["Reviews"])
-plt.show()
-
-#=======================================================================
-
