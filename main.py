@@ -189,9 +189,10 @@ plt.show()
 #plt.show()
 
 #pie plot to show percentage Fiction books Vs Non Fiction books
+#I have turned the pie around to make it look like a smiley emoji.
 Genre = df["Genre"].value_counts()
 plt.figure(figsize=(15,7))
-plt.pie(Genre, colors=["#ff0000","#ffff00"],autopct="%1.1f%%", startangle=90, shadow=False , explode=(0.3,0), labels=Genre.index)
+plt.pie(Genre, colors=["#ffff00", "#ff0000"],autopct="%1.1f%%", startangle=169, shadow=False , explode=(0.17,0), labels=Genre.index)
 plt.title("Book Genre", fontsize=30)
 plt.show()
 
