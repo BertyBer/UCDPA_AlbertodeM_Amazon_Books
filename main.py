@@ -121,6 +121,12 @@ print(df.iloc[1, 1])
 print(df.iloc[7, 5])
 print(df[:10])
 #print(df.head(20))
+#=========================================================================
+
+sns.histplot(df["Genre"],bins=12, color='#cd5c5c' )
+plt.title("Fiction Vs Non Fiction", fontsize=32)
+plt.show()
+
 
 #============================================================================
 #I want to find the most expensive book in the Dataset
@@ -197,3 +203,11 @@ plt.grid(True)
 
 plt.show()
 #==================================================================
+
+#I am plotting an histogram showing the frequency of Reviews occurrences.
+sns.histplot(df["Reviews"])
+plt.show()
+
+reviews = df[["Reviews","Author"]].groupby([df.Author])
+rev_sum = reviews.sum()
+print(rev_sum)
