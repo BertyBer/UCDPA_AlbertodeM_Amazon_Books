@@ -144,3 +144,20 @@ min_index = column.idxmin()
 print(min_index)
 print(df.iloc[[42]])
 # It's Cabin Fever (Diary of a Wimpy Kid, Book 6) for 0Eur from Year 2011. Although this is not 100% correct as there are more books for free than this one
+
+#=========================================================================
+#Now I am going to group the data by Authors
+group=df.groupby("Author")
+print(group)
+print(group.sum())
+#which Author has the highest number of combined ratings?
+print(group.sum().sort_values("User_Rating").tail())
+#It's Jeff Kinney with 57.6
+
+#which Author has the highest number of reviews?
+print(group.sum().sort_values("Reviews").tail())
+#It's Suzanne Collins with 51.3
+
+#===========================================================================
+
+
