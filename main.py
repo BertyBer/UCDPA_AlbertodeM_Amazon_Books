@@ -65,7 +65,6 @@
 
 
 #importing packages and continue with Amazon Books project.
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -160,4 +159,18 @@ print(group.sum().sort_values("Reviews").tail())
 
 #===========================================================================
 
+#scatter plot to show the relation between price and User Rating
+df = pd.DataFrame(np.random.rand(50, 4), columns=["Reviews", "Price", "Year", "User_Rating"])
+df.plot.scatter(x="Price", y="User_Rating")
+plt.show()
+#scatter plot to show the relation between price and Year
+df = pd.DataFrame(np.random.rand(50, 4), columns=["Reviews", "Price", "Year", "User_Rating"])
+df.plot.scatter(x="Price", y="Year")
+plt.show()
+#scatter plot to show the relation between price and Reviews
+df = pd.DataFrame(np.random.rand(50, 4), columns=["Reviews", "Price", "Year", "User_Rating"])
+df.plot.scatter(x="Price", y="Reviews")
+plt.show()
+
+#=====================================================================================
 
