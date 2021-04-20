@@ -158,7 +158,7 @@ plt.show()
 
 #plotting top ten sellers
 
-Top_Ten = df["Name"].value_counts().iloc[:11]
+Top_Ten = df["Name"].value_counts().iloc[:10]
 
 plt.figure(figsize=(15,8))
 sns.barplot(x=Top_Ten.values, y=Top_Ten.index, color="#9acd32", alpha=.9)
