@@ -146,15 +146,15 @@ print(df.iloc[[42]])
 
 #=========================================================================
 #Now I am going to group the data by Authors
-group=df.groupby("Author")
-print(group)
-print(group.sum())
+#group=df.groupby("Author")
+#print(group)
+#print(group.sum())
 #which Author has the highest number of combined ratings?
-print(group.sum().sort_values("User_Rating").tail())
+#print(group.sum().sort_values("User_Rating").tail())
 #It's Jeff Kinney with 57.6
 
 #which Author has the highest number of reviews?
-print(group.sum().sort_values("Reviews").tail())
+#print(group.sum().sort_values("Reviews").tail())
 #It's Suzanne Collins with 51.3
 
 #===========================================================================
@@ -174,3 +174,26 @@ plt.show()
 
 #=====================================================================================
 
+#plot showing relation between the Price, reviews and Ratings.
+x = df["Price"].head(20)
+y1 = df["Reviews"].head(20)
+y2 = df["User_Rating"].head(20)
+
+
+fig, (ax1,ax2) = plt.subplots(1,2)
+
+ax1.plot(x,y1, marker="d", linestyle="--", color="c", label="Reviews")
+ax1.set_title("")
+ax1.set_xlabel("Price")
+ax1.set_ylabel("No of Reviews")
+ax1.grid(True)
+
+ax2.plot(x,y2,marker="^", linestyle="-.", color="g", label="User_Rating")
+ax2.set_title("")
+ax2.set_xlabel("Price")
+ax2.set_ylabel("User_Rating")
+plt.tight_layout()
+plt.grid(True)
+
+plt.show()
+#==================================================================
