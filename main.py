@@ -66,8 +66,8 @@
 
 #importing packages and continue with Amazon Books project.
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 import seaborn as sns
 
 #Importing database Amazon bestseller books from Kaggle
@@ -111,43 +111,104 @@ df.columns = ["Name", "Author", "User_Rating", "Reviews", "Price", "Year", "Genr
 #print(df.head())
 
 #slicing / indexing
-print(df.loc[[0, 10], :])
+#print(df.loc[[0, 10], :])
 
-print(df.iloc[0:3, 1:4])
-print(df.loc[[0, 10], :])
-print(df.loc[0, ["Author", "User_Rating", "Year"]])
-print(df.iloc[5, 3])
-print(df.iloc[1, 1])
-print(df.iloc[7, 5])
-print(df[:10])
+#print(df.iloc[0:3, 1:4])
+#print(df.loc[[0, 10], :])
+#print(df.loc[0, ["Author", "User_Rating", "Year"]])
+#print(df.iloc[5, 3])
+#print(df.iloc[1, 1])
+#print(df.iloc[7, 5])
+#print(df[:10])
 #print(df.head(20))
+
+#========================================================
+
+#how many times the books at the top ten have been reviewed (x axis)
+#how many times the books at the top ten have been rated (x axis)
+
+Top_Ten = df['Name'].value_counts().iloc[:10]
+
+#print(Top_Ten)
+
+#x = Top_Ten
+#y1 = df["Reviews"].head(10)
+#y2 = df["User_Rating"].head(10)
+
+#fig, (ax1,ax2) = plt.subplots(2,1)
+
+#ax1.plot(x,y1, marker="o", linestyle="--", color="g", label="Reviews")
+#ax1.set_title("Reviews per book")
+#ax1.set_xlabel("No.of times book reviewed on the Top Ten")
+#ax1.set_ylabel("")
+#ax1.legend()
+#ax1.grid(False)
+
+#ax2.plot(x,y2,marker="*", linestyle="-.", color="y", label="User_Rating")
+#ax2.set_title("User_Rating")
+#ax2.set_xlabel("No.of times book rated on the Top Ten")
+#ax2.set_ylabel("")
+#plt.tight_layout()
+#ax2.legend()
+#plt.grid(False)
+
+#plt.show()
+
+#====================================================================
+
+#plotting top ten sellers using seaborn
+
+Top_Ten = df["Name"].value_counts().iloc[:10]
+
+plt.figure(figsize=(15,8))
+sns.barplot(x=Top_Ten.values, y=Top_Ten.index, color="#9acd32", alpha=.9)
+plt.title("Top 10 Bestsellers", fontsize=35)
+plt.xlabel("Count", fontsize=12)
+plt.ylabel("Book", fontsize=12)
+plt.xticks(fontsize=12)
+plt.yticks(fontsize=12)
+plt.show()
+
+#=====================================================================
+
+#x = df["Author"].head(20)
+#y1 = df["Price"].head(20)
+#sns.lineplot(x=x,y=y1)
+#plt.show()
+#=======================================================================
+#x = df["Author"].head(20)
+#y1 = df["Reviews"].head(20)
+#sns.lineplot(x=x,y=y1)
+#plt.show()
+
+
 #=========================================================================
 
-sns.histplot(df["Genre"],bins=12, color='#cd5c5c' )
-plt.title("Fiction Vs Non Fiction", fontsize=32)
-plt.show()
+#sns.histplot(df["Genre"],bins=12, color='#cd5c5c' )
+#plt.title("Fiction Vs Non Fiction", fontsize=32)
+#plt.show()
 
 
 #============================================================================
 #I want to find the most expensive book in the Dataset
-column = df["Price"]
-max_value = column.max()
-print(max_value)
+#column = df["Price"]
+#max_value = column.max()
+#print(max_value)
 #locating it by index
-column = df["Price"]
-max_index = column.idxmax()
-print(max_index)
-print(df.iloc[[69]])
+#column = df["Price"]
+#max_index = column.idxmax()
+#rint(max_index)
+#print(df.iloc[[69]])
 # It's Diagnostic and Statistical Manual of Mental Disorders for 105Eur from Year 2013.
 
 #Now that that works, I can find the cheapest book in the Dataset
-column = df["Price"]
-min_value = column.min()
-print(min_value)
-column = df["Price"]
-min_index = column.idxmin()
-print(min_index)
-print(df.iloc[[42]])
+#column = df["Price"]
+#min_value = column.min()
+#print(min_value)
+#column = df["Price"]
+#min_index = column.idxmin()
+#print(min_index)
+#print(df.iloc[[42]])
 # It's Cabin Fever (Diary of a Wimpy Kid, Book 6) for 0Eur from Year 2011. Although this is not 100% correct as there are more books for free than this one
 
 #=========================================================================
@@ -166,48 +227,51 @@ print(df.iloc[[42]])
 #===========================================================================
 
 #scatter plot to show the relation between price and User Rating
-df = pd.DataFrame(np.random.rand(50, 4), columns=["Reviews", "Price", "Year", "User_Rating"])
-df.plot.scatter(x="Price", y="User_Rating")
-plt.show()
+#df = pd.DataFrame(np.random.rand(50, 4), columns=["Reviews", "Price", "Year", "User_Rating"])
+#df.plot.scatter(x="Price", y="User_Rating")
+#plt.show()
 #scatter plot to show the relation between price and Year
-df = pd.DataFrame(np.random.rand(50, 4), columns=["Reviews", "Price", "Year", "User_Rating"])
-df.plot.scatter(x="Price", y="Year")
-plt.show()
+#df = pd.DataFrame(np.random.rand(50, 4), columns=["Reviews", "Price", "Year", "User_Rating"])
+#df.plot.scatter(x="Price", y="Year")
+#plt.show()
 #scatter plot to show the relation between price and Reviews
-df = pd.DataFrame(np.random.rand(50, 4), columns=["Reviews", "Price", "Year", "User_Rating"])
-df.plot.scatter(x="Price", y="Reviews")
-plt.show()
+#df = pd.DataFrame(np.random.rand(50, 4), columns=["Reviews", "Price", "Year", "User_Rating"])
+#df.plot.scatter(x="Price", y="Reviews")
+#plt.show()
 
 #=====================================================================================
 
 #plot showing relation between the Price, reviews and Ratings.
-x = df["Price"].head(20)
-y1 = df["Reviews"].head(20)
-y2 = df["User_Rating"].head(20)
+#x = df["Price"].head(20)
+#y1 = df["Reviews"].head(20)
+#y2 = df["User_Rating"].head(20)
 
 
-fig, (ax1,ax2) = plt.subplots(1,2)
+#fig, (ax1,ax2) = plt.subplots(1,2)
 
-ax1.plot(x,y1, marker="d", linestyle="--", color="c", label="Reviews")
-ax1.set_title("")
-ax1.set_xlabel("Price")
-ax1.set_ylabel("No of Reviews")
-ax1.grid(True)
+#ax1.plot(x,y1, marker="d", linestyle="--", color="c", label="Reviews")
+#ax1.set_title("")
+#ax1.set_xlabel("Price")
+#ax1.set_ylabel("No of Reviews")
+#ax1.grid(True)
 
-ax2.plot(x,y2,marker="^", linestyle="-.", color="g", label="User_Rating")
-ax2.set_title("")
-ax2.set_xlabel("Price")
-ax2.set_ylabel("User_Rating")
-plt.tight_layout()
-plt.grid(True)
+#ax2.plot(x,y2,marker="^", linestyle="-.", color="g", label="User_Rating")
+#ax2.set_title("")
+#ax2.set_xlabel("Price")
+#ax2.set_ylabel("User_Rating")
+#plt.tight_layout()
+#plt.grid(True)
 
-plt.show()
+#plt.show()
 #==================================================================
 
 #I am plotting an histogram showing the frequency of Reviews occurrences.
-sns.histplot(df["Reviews"])
-plt.show()
+#sns.histplot(df["Reviews"])
+#plt.show()
 
-reviews = df[["Reviews","Author"]].groupby([df.Author])
-rev_sum = reviews.sum()
-print(rev_sum)
+#reviews = df[["Reviews","Author"]].groupby([df.Author])
+#rev_sum = reviews.sum()
+#print(rev_sum)
+
+#=======================================================================
+
